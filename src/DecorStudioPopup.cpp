@@ -42,7 +42,7 @@ bool DecorStudioPopup::init(EditorUI* ui) {
     constexpr float startY = 92.f;
     constexpr float stepY = 40.f;
 
-    for (int i = 0; i < static_cast<int>(styles.size()); ++i) {
+    for (int i = 0; i < (int)styles.size(); ++i) {
         auto off = ButtonSprite::create(
             styles[i].name, "goldFont.fnt", "GJ_button_01.png", .5f
         );
@@ -111,7 +111,7 @@ void DecorStudioPopup::onStyle(cocos2d::CCObject* sender) {
 
     m_styleIndex = std::clamp(
         toggle->getTag(), 0,
-        static_cast<int>(autodecor::builtinStyles().size()) - 1
+        (int)autodecor::builtinStyles().size() - 1
     );
     Mod::get()->setSavedValue<int>("style", m_styleIndex);
 }
@@ -139,7 +139,6 @@ void DecorStudioPopup::onApply(cocos2d::CCObject*) {
         for (unsigned int i = 0; i < array->count(); ++i) {
             auto obj = typeinfo_cast<GameObject*>(array->objectAtIndex(i));
             if (!obj) continue;
-            // не декорируем то, что уже создал мод
             if (obj->getUserFlag(autodecor::kMadeFlag)) continue;
             if (cfg.skipTriggers && obj->m_isTrigger) continue;
             targets.push_back(obj);
@@ -163,14 +162,12 @@ void DecorStudioPopup::onApply(cocos2d::CCObject*) {
     }
 
     if (targets.empty()) {
-        Notification::create(
-            "Nothing to decorate", NotificationIcon::Warning
-        )->show();
+        Notification::create("Nothing to decorate", NotificationIcon::Warning)->show();
         return;
     }
 
     bool truncated = false;
-    if (static_cast<int>(targets.size()) > cfg.maxTargets) {
+    if ((int)targets.size() > cfg.maxTargets) {
         targets.resize(cfg.maxTargets);
         truncated = true;
     }
