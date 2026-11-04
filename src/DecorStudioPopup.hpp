@@ -18,6 +18,7 @@ protected:
     CCMenuItemToggler* m_modeToggle = nullptr;
 
     bool init(EditorUI* ui);
+    void buildStyleGrid();
     void onStyle(cocos2d::CCObject* sender);
     void onMode(cocos2d::CCObject* sender);
     void onApply(cocos2d::CCObject* sender);
