@@ -99,7 +99,7 @@ private:
         return std::uniform_real_distribution<float>(lo, hi)(m_rng);
     }
 
-    // Создаёт один объект декора с центром в точке \`at\`.
+    // Создаёт один объект декора с центром в точке `at`.
     // Реальный размер считается от contentSize самого объекта, поэтому
     // работает с любым ID (у разных объектов разный «родной» размер).
     GameObject* place(int objectID, cocos2d::CCPoint at, float desiredPx,
@@ -129,7 +129,7 @@ private:
         float scale = std::clamp(desiredPx / native, .01f, 20.f);
         obj->setScale(scale);
 
-        // Ставим объект так, чтобы его центр попал ровно в точку \`at\`.
+        // Ставим объект так, чтобы его центр попал ровно в точку `at`.
         auto anchor = obj->getAnchorPoint();
         obj->setPosition({
             at.x + (anchor.x - .5f) * cs.width * scale,
@@ -283,7 +283,7 @@ private:
         }
     }
 
-    // Точка на периметре прямоугольника, \`t\` — расстояние от левого нижнего
+    // Точка на периметре прямоугольника, `t` — расстояние от левого нижнего
     // угла по часовой стрелке.
     static cocos2d::CCPoint pointOnRect(float x0, float y0,
                                         float x1, float y1, float t) {
