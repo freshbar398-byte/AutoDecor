@@ -1,4 +1,3 @@
-// Попап выбора стиля: сетка пресетов + кнопка DECORATE.
 #pragma once
 
 #include <Geode/Geode.hpp>
