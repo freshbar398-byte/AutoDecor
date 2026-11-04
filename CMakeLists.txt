@@ -26,3 +26,6 @@ endif()
 add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 
 setup_geode_mod(${PROJECT_NAME})
+
+# Workaround: fmt library consteval FMT_STRING fails on Android NDK with new clang
+target_compile_options(${PROJECT_NAME} PRIVATE -DFMT_USE_CONSTEVAL=0)
