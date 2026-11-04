@@ -1,11 +1,14 @@
 {
-	"geode": "5.11.2",
+	"geode": "4.0.0",
 	"version": "v2.0.0",
 	"id": "narezany.auto-decor",
 	"name": "Auto Decor",
 	"developer": "Narezany",
 	"description": "DECOR button in the editor: pick a style (Slaughterhouse, Tidal Wave, Acheron, 5 more) and decorate selected objects with one click.",
-	"tags": ["editor", "utility"],
+	"tags": [
+		"editor",
+		"utility"
+	],
 	"gd": {
 		"win": "2.2081",
 		"android": "2.2081",
@@ -25,7 +28,7 @@
 			"type": "float",
 			"name": "Spread",
 			"description": "How far the decor goes from the object",
-			"default": 1.0,
+			"default": 1,
 			"min": 0,
 			"max": 3,
 			"control": {
@@ -38,7 +41,7 @@
 			"type": "float",
 			"name": "Decor size",
 			"description": "Size multiplier for the created objects",
-			"default": 1.0,
+			"default": 1,
 			"min": 0.2,
 			"max": 3,
 			"control": {
